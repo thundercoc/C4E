@@ -14,12 +14,3 @@ function cmt(){
     userCmt["comment"] = newCmt;
     comts.push(userCmt);
 }
-function displayListcmt() {
-    let sumLi = '';
-    for (let i = 0; i < comts.length; i++) {
-      const userCmts = comts[i];
-      sumLi += '<li>' + userCmts + '</li>';
-    }
-
-    document.getElementById("listCmt").innerHTML = sumLi;
-}
