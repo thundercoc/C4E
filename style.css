@@ -170,3 +170,17 @@ nav
     opacity: 1;
     visibility: visible;
 }
+#header{
+    text-align: center;
+}
+#p1{
+    font-size: larger;
+}
+#container{
+    border-style: none groove none groove;
+        border-left: 1px solid #dbd8cf;
+        border-right:1px solid #dbd8cf ;
+        border-bottom:1px solid #dbd8cf ;
+
+		box-shadow: -44px 120px 80px -72px #fff inset, -44px -120px 80px -72px #fff inset;
+}
