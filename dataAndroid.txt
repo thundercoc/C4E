@@ -1,0 +1,117 @@
+// Data Android
+
+var android = [];
+
+if(localStorage.getItem("android")){
+    android = JSON.parse(localStorage.getItem("android"));
+}
+
+function displayAdminAndroidPhone(){
+    let display = '';
+    for(let i = 0;i < android.length;i++){
+        const showTitle = android[i].title;
+        const showCode = android[i].codeData;
+        display += `
+        <tr>
+            <td>${i + 1}</td>
+            <td>${showCode}</td>
+            <td>${showTitle}</td>
+            <td>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#comments-modal">
+                    Duyệt bình luận
+                </button>
+            </td>
+            <td>
+                <button class="btn btn-warning" onclick="delAndroidPhone(${android[i].code})">Xóa bài viết</button>
+            </td>
+        </tr>
+        `;
+    }
+    document.getElementById("android-phone").innerHTML = display;
+}
+
+displayAdminAndroidPhone();
+
+
+function delAndroidPhone(code) {
+    if (confirm("Bạn có muốn xóa không ?")) {
+        for (let i = 0; i < android.length; i++) {
+            const delAndroidPhone = android[i];
+            if (delAndroidPhone.code == code){
+                android.splice(i, 1);
+                break;
+            }
+        }
+        displayAdminAndroidPhone();
+        localStorage.setItem("android",JSON.stringify(android));
+    }
+}
+
+function displayUser(){
+    let displayUser = '';
+    for(let i = 0;i < android.length;i++){
+        const checkCode = android[i].codeData;
+        displayUser += `
+            <div class="card-body">
+                <div class="media">
+                    <img src="${android[i].pic}" width="10px" height="10px">
+                    <div class="media-body">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="Detail.html">${android[i].title}</a></h5>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+    document.getElementById("list-element").innerHTML = displayUser;
+}
+displayUser();
+function addNewAndroidPhone(){
+    let newPhone = {
+        code : Math.random(),
+        codeData : '',
+        name : '',
+        pic : '',
+        title : '',
+        text : ''
+    };
+
+    function pushAndroid(){
+        android.push(newPhone);
+    }
+
+    let newCode = document.getElementById("android-phone-code-add").value;
+    document.getElementById("android-phone-code-add").value = '';
+    newPhone["codeData"] = String(newCode);
+
+    let newName = document.getElementById("android-phone-name-add").value;
+    document.getElementById("android-phone-name-add").value = '';
+    newPhone["name"] = String(newName);
+
+    let newPic = document.getElementById("android-phone-pic-add").value;
+    document.getElementById("android-phone-pic-add").value = '';
+    newPhone["pic"] = newPic;
+
+    let newTitle = document.getElementById("android-phone-title-add").value;
+    document.getElementById("android-phone-title-add").value = '';
+    newPhone["title"] = String(newTitle);
+
+    let newText = document.getElementById("android-phone-text-add").value;
+    document.getElementById("android-phone-text-add").value = '';
+    newPhone["text"] = String(newText);
+
+    if(newCode === '' || newName === '' || newPic === '' || newTitle === '' || newText === ''){
+        alert("Vui lòng nhập đầy đủ thông tin");
+    } else {
+        if(confirm("Bạn có muốn đăng không ?")){
+            pushAndroid(newPhone);
+            localStorage.setItem("android",JSON.stringify(android));
+            alert("Thành công !");
+        
+            displayAdminAndroidPhone();
+        }
+
+    }
+}
