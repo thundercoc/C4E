@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Windows Phone</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <script src="dataWindowsPhone.js"></script>
+</head>
+
+<body class="fluid-container">
+  <div>
+    <nav>
+      <div class="menu">
+        <ul>
+          <li>
+            <a href="#">
+              <img src=".\Pictures\Logo\R3view.jpg" alt="R3view" width="115px" height="35px">
+            </a>
+          </li>
+          <li><a href="list-IOS.html" class="menu-item">iOS</a></li>
+          <li><a href="list-android.html" class="menu-item">Android</a></li>
+          <li><a href="list-windowsPhone.html" class="menu-item">Windows Phone</a></li>
+          <li><a href="list-blackberry.html" class="menu-item">BlackBerry</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div id="element">
+      <div>
+          <img src=".\Pictures\OS\windows.jpg" alt="Windows Phone" width="100%" height="600px">
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6"><h2>Bài viết nổi bật:</h2></div>
+        <div class="col-3"></div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6"><div id="list-element"></div></div>
+        <div class="col-3"></div>
+      </div>
+    </div>
+    <br>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+    <script>
+      $(document).ready(function () {
+        $('#search').click(function () {
+          $('.menu-item').addClass('hide-item');
+          $('.search-form').addClass('active');
+          $('.close').addClass('active');
+          $('#search').hide();
+        })
+        $('.close').click(function () {
+          $('.menu-item').removeClass('hide-item');
+          $('.search-form').removeClass('active');
+          $('.close').removeClass('active');
+          $('#search').show();
+        })
+      })
+    </script>
+    <script>
+      function addWindowsPhoneRequest(e){
+            e = e || window.event;
+            var target = e.target || e.srcElement;
+            localStorage.setItem("tempWindowsId",JSON.stringify(target.id));
+      }
+      function displayListWindowsPhone(){
+        let displayListWindowsPhone = '';
+
+        for(let i = 0;i < windowsPhone.length;i++){
+            const checkTitle = windowsPhone[i].title;
+            const checkPic = windowsPhone[i].pic;
+            const checkStt = windowsPhone[i].stt;
+            const checkDes = windowsPhone[i].des;
+            displayListWindowsPhone += `
+            <div class="container mt-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-body">
+                    <div class="media">
+                      <img src="${checkPic}" width="175px" height="125px">
+                      <div class="media-body">
+                        <div class="card-body">
+                          <a href="detail-windowsPhone.html" style="color: black;"><h5 class="card-title" id="${checkStt}" onclick="addWindowsPhoneRequest(event)">${checkTitle}</h5></a>
+                          <br>
+                          <figure>${checkDes}</figure>
+                          <a id="${checkStt}" onclick="addWindowsPhoneRequest(event)" href="detail-windowsPhone.html">Xem chi tiết</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            `;
+        }
+        document.getElementById("list-element").innerHTML = displayListWindowsPhone;
+      }
+      displayListWindowsPhone();
+    </script>
+    <footer style="background-color: black;color: white;">
+        <div class="d-flex p-3">  
+          <div class="p-2">
+            <a href="#"><img src=".\Pictures\Logo\R3view.jpg" alt="R3view" width="150px" height="50px"></a>
+            <p>Copyright © R3view 2020</p>
+          </div>
+          <div class="p-2">
+            <ul style="list-style: none;">
+              <li><p>Tác giả:</p></li>
+              <li><a href="https://www.facebook.com/vu.quangminh.73594">Vũ Quang Minh</a></li>
+              <li><a href="https://www.facebook.com/trungkwan420">Nguyễn Trung Quân</a></li>
+              <li><a href="https://www.facebook.com/anhdungtran0106?fref=search&__tn__=%2Cd%2CP-R&eid=ARCId_QI1iIUVod8ZbAVEsfhxyZktYgFsGNrdy3XlkjyW6SQzvtJRV4heNzYAfyRxef4ZfDugerVhqkk">Trần Anh Dũng</a></li>
+            <ul>
+          </div>
+        </div>
+    </footer>
+</body>
+</html>

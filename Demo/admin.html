@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="dataAndroid.js"></script>
+    <script src="dataIOS.js"></script>
+    <script src="dataWindowsPhone.js"></script>
+    <script src="dataBlackberry.js"></script>
+    <title>Administrator's Control Panel</title>
+</head>
+<body>
+    <div class="container">
+        <div class="modal fade" id="add-android-modal">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <!-- Modal Android -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Tạo bài viết:</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="android-phone-stt-add" placeholder="Nhập mã bài viết (Không trùng nhau)" name="text1">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="android-phone-name-add" placeholder="Nhập tên điện thoại" name="text1">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="android-phone-pic-add" placeholder="Nhập link ảnh đại diện" name="text1">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="android-phone-title-add" placeholder="Nhập tiêu đề">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="2" id="android-phone-des-add" placeholder="Nhập mô tả ngắn"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="15" id="android-phone-text-add" placeholder="Bài viết (Sử dụng HTML)"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" onclick="addNewAndroidPhone()">Đăng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="modal fade" id="add-IOS-modal">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <!-- Modal IOS -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Tạo bài viết:</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="IOS-phone-stt-add" placeholder="Nhập mã bài viết (Không trùng nhau)" name="text1">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="IOS-phone-name-add" placeholder="Nhập tên điện thoại" name="text1">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="IOS-phone-pic-add" placeholder="Nhập link ảnh đại diện" name="text1">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="IOS-phone-title-add" placeholder="Nhập tiêu đề">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="2" id="IOS-phone-des-add" placeholder="Nhập mô tả ngắn"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="15" id="IOS-phone-text-add" placeholder="Bài viết (Sử dụng HTML)"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" onclick="addNewIOSPhone()">Đăng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="modal fade" id="add-windows-modal">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <!-- Modal Windows Phone -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Tạo bài viết:</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="windows-phone-stt-add" placeholder="Nhập mã bài viết (Không trùng nhau)" name="text1">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="windows-phone-name-add" placeholder="Nhập tên điện thoại" name="text1">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="windows-phone-pic-add" placeholder="Nhập link ảnh đại diện" name="text1">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="windows-phone-title-add" placeholder="Nhập tiêu đề">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="2" id="windows-phone-des-add" placeholder="Nhập mô tả ngắn"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="15" id="windows-phone-text-add" placeholder="Bài viết (Sử dụng HTML)"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" onclick="addNewWindowsPhone()">Đăng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="modal fade" id="add-blackberry-modal">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <!-- Modal Blackberry -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Tạo bài viết:</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="blackberry-phone-stt-add" placeholder="Nhập mã bài viết (Không trùng nhau)" name="text1">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="blackberry-phone-name-add" placeholder="Nhập tên điện thoại" name="text1">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="blackberry-phone-pic-add" placeholder="Nhập link ảnh đại diện" name="text1">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="blackberry-phone-title-add" placeholder="Nhập tiêu đề">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="2" id="blackberry-phone-des-add" placeholder="Nhập mô tả ngắn"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="15" id="blackberry-phone-text-add" placeholder="Bài viết (Sử dụng HTML)"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" onclick="addNewBlackberry()">Đăng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="modal fade" id="comments-android-modal">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+              
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Bình Luận:</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div id="comments-android"></div>
+                    </div>
+                
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="modal fade" id="comments-blackberry-modal">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+              
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Bình Luận:</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div id="comments-blackberry"></div>
+                    </div>
+                
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <h2>Kiểm soát bài viết</h2>
+        <br>
+        <div class="mb-3">
+            <div class="card" style="background-color: white;">
+                <div class="container-fluid" class="card-body">
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-8"><h3>Android</h3></div>
+                        <div class="col-sm-4">
+                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add-android-modal">
+                                Tạo mới
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Mã số</th>
+                            <th>Tên bài viết</th>
+                            <th>Bình luận</th>
+                            <th>Điều khiển</th>
+                        </tr>
+                    </thead>
+                    <tbody id="android-phone"></tbody>
+                </table>
+            </div>
+        </div>
+        <br>
+        <div class="mb-3">
+            <div class="card" style="background-color: white;">
+                <div class="container-fluid" class="card-body">
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-8"><h3>IOS</h3></div>
+                        <div class="col-sm-4">
+                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#add-IOS-modal">
+                                Tạo mới
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Mã số</th>
+                            <th>Tên bài viết</th>
+                            <th>Bình luận</th>
+                            <th>Điều khiển</th>
+                        </tr>
+                    </thead>
+                    <tbody id="IOS-phone"></tbody>
+                </table>
+            </div>
+        </div>
+        <br>
+        <div class="mb-3">
+            <div class="card" style="background-color: white;">
+                <div class="container-fluid" class="card-body">
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-8"><h3>WindowsPhone</h3></div>
+                        <div class="col-sm-4">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-windows-modal">
+                                Tạo mới
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Mã số</th>
+                            <th>Tên bài viết</th>
+                            <th>Bình luận</th>
+                            <th>Điều khiển</th>
+                        </tr>
+                    </thead>
+                    <tbody id="windows-phone"></tbody>
+                </table>
+            </div>
+        </div>
+        <br>
+        <div class="mb-3">
+            <div class="card" style="background-color: white;">
+                <div class="container-fluid" class="card-body">
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-8"><h3>Blackberry</h3></div>
+                        <div class="col-sm-4">
+                            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#add-blackberry-modal">
+                                Tạo mới
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Mã số</th>
+                            <th>Tên bài viết</th>
+                            <th>Bình luận</th>
+                            <th>Điều khiển</th>
+                        </tr>
+                    </thead>
+                    <tbody id="blackberry-phone"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        function addAndroidRequest(e){
+            e = e || window.event;
+            var target = e.target || e.srcElement;
+            localStorage.setItem("tempAndroidId",JSON.stringify(target.id));
+        }
+
+        function displayAdminAndroidPhone(){
+            let display = '';
+            for(let i = 0;i < android.length;i++){
+                const showTitle = android[i].title;
+                const showStt = android[i].stt;
+                display += `
+                <tr>
+                    <td>${showStt}</td>
+                    <td>${showTitle}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#comments-android-modal">
+                            Duyệt bình luận
+                        </button>
+                    </td>
+                    <td>
+                        <a id="${showStt}" onclick="addAndroidRequest(event)" href="detail-android.html" target="_blank" class="btn btn-info" >Xem bài viết</a>
+                        <button class="btn btn-warning" onclick="delAndroidPhone(${android[i].code})">Xóa bài viết</button>
+                    </td>
+                </tr>
+                `;
+            }
+            document.getElementById("android-phone").innerHTML = display;
+        }
+
+        displayAdminAndroidPhone();
+        function delAndroidPhone(code) {
+            if (confirm("Bạn có muốn xóa không ?")) {
+                for (let i = 0; i < android.length; i++) {
+                    const delAndroidPhone = android[i];
+                    if (delAndroidPhone.code == code){
+                        android.splice(i, 1);
+                        break;
+                    }
+                }
+                displayAdminAndroidPhone();
+                localStorage.setItem("android",JSON.stringify(android));
+            }
+        }
+
+        function addNewAndroidPhone(){
+            let newPhone = {
+                code : Math.random(),
+                stt : '',
+                name : '',
+                pic : '',
+                title : '',
+                text : '',
+                des : '',
+                commentChecked : []
+            };
+
+            function pushAndroid(){
+                android.push(newPhone);
+            }
+
+            let newStt = document.getElementById("android-phone-stt-add").value;
+            document.getElementById("android-phone-stt-add").value = '';
+            newPhone["stt"] = String(newStt);
+
+            let newName = document.getElementById("android-phone-name-add").value;
+            document.getElementById("android-phone-name-add").value = '';
+            newPhone["name"] = String(newName);
+
+            let newPic = document.getElementById("android-phone-pic-add").value;
+            document.getElementById("android-phone-pic-add").value = '';
+            newPhone["pic"] = newPic;
+
+            let newTitle = document.getElementById("android-phone-title-add").value;
+            document.getElementById("android-phone-title-add").value = '';
+            newPhone["title"] = String(newTitle);
+
+            let newText = document.getElementById("android-phone-text-add").value;
+            document.getElementById("android-phone-text-add").value = '';
+            newPhone["text"] = String(newText);
+            
+            let newDes = document.getElementById("android-phone-des-add").value;
+            document.getElementById("android-phone-des-add").value = '';
+            newPhone["des"] = String(newDes);
+
+            if(newStt === '' || newName === '' || newPic === '' || newTitle === '' || newText === '' || newDes === ''){
+                alert("Vui lòng nhập đầy đủ thông tin");
+            } else {
+                if(confirm("Bạn có muốn đăng không ?")){
+                    pushAndroid(newPhone);
+                    localStorage.setItem("android",JSON.stringify(android));
+                    alert("Thành công !");
+                
+                    displayAdminAndroidPhone();
+                }
+            }
+        }
+    </script>
+    <script>
+        function addIOSRequest(e){
+            e = e || window.event;
+            var target = e.target || e.srcElement;
+            localStorage.setItem("tempIOSId",JSON.stringify(target.id));
+        }
+
+        function displayAdminIOSPhone(){
+            let display = '';
+            for(let i = 0;i < IOS.length;i++){
+                const showTitle = IOS[i].title;
+                const showStt = IOS[i].stt;
+                display += `
+                <tr>
+                    <td>${showStt}</td>
+                    <td>${showTitle}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#comments-modal">
+                            Duyệt bình luận
+                        </button>
+                    </td>
+                    <td>
+                        <a id="${showStt}" onclick="addIOSRequest(event)" href="detail-IOS.html" class="btn btn-info" >Xem bài viết</a>
+                        <button class="btn btn-warning" onclick="delIOSPhone(${IOS[i].code})">Xóa bài viết</button>
+                    </td>
+                </tr>
+                `;
+            }
+            document.getElementById("IOS-phone").innerHTML = display;
+        }
+
+        displayAdminIOSPhone();
+        function delIOSPhone(code) {
+            if (confirm("Bạn có muốn xóa không ?")) {
+                for (let i = 0; i < IOS.length; i++) {
+                    const delIOSPhone = IOS[i];
+                    if (delIOSPhone.code == code){
+                        IOS.splice(i, 1);
+                        break;
+                    }
+                }
+                displayAdminIOSPhone();
+                localStorage.setItem("IOS",JSON.stringify(IOS));
+            }
+        }
+
+        function addNewIOSPhone(){
+            let newPhone = {
+                code : Math.random(),
+                stt : '',
+                name : '',
+                pic : '',
+                title : '',
+                text : '',
+                des : '',
+                commentChecked:[]
+            };
+
+            function pushIOS(){
+                IOS.push(newPhone);
+            }
+
+            let newStt = document.getElementById("IOS-phone-stt-add").value;
+            document.getElementById("IOS-phone-stt-add").value = '';
+            newPhone["stt"] = String(newStt);
+
+            let newName = document.getElementById("IOS-phone-name-add").value;
+            document.getElementById("IOS-phone-name-add").value = '';
+            newPhone["name"] = String(newName);
+
+            let newPic = document.getElementById("IOS-phone-pic-add").value;
+            document.getElementById("IOS-phone-pic-add").value = '';
+            newPhone["pic"] = newPic;
+
+            let newTitle = document.getElementById("IOS-phone-title-add").value;
+            document.getElementById("IOS-phone-title-add").value = '';
+            newPhone["title"] = String(newTitle);
+
+            let newText = document.getElementById("IOS-phone-text-add").value;
+            document.getElementById("IOS-phone-text-add").value = '';
+            newPhone["text"] = String(newText);
+
+            let newDes = document.getElementById("IOS-phone-des-add").value;
+            document.getElementById("IOS-phone-des-add").value = '';
+            newPhone["des"] = String(newDes);
+
+            if(newStt === '' || newName === '' || newPic === '' || newTitle === '' || newText === '' || newDes === ''){
+                alert("Vui lòng nhập đầy đủ thông tin");
+            } else {
+                if(confirm("Bạn có muốn đăng không ?")){
+                    pushIOS(newPhone);
+                    localStorage.setItem("IOS",JSON.stringify(IOS));
+                    alert("Thành công !");
+                
+                    displayAdminIOSPhone();
+                }
+            }
+        }
+    </script>
+    <script>
+        function addWindowsRequest(e){
+            e = e || window.event;
+            var target = e.target || e.srcElement;
+            localStorage.setItem("tempWindowsId",JSON.stringify(target.id));
+        }
+
+        function displayAdminWindowsPhone(){
+            let display = '';
+            for(let i = 0;i < windowsPhone.length;i++){
+                const showTitle = windowsPhone[i].title;
+                const showStt = windowsPhone[i].stt;
+                display += `
+                <tr>
+                    <td>${showStt}</td>
+                    <td>${showTitle}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#comments-modal">
+                            Duyệt bình luận
+                        </button>
+                    </td>
+                    <td>
+                        <a id="${showStt}" onclick="addWindowsRequest(event)" href="detail-windowsPhone.html" class="btn btn-info" >Xem bài viết</a>
+                        <button class="btn btn-warning" onclick="delWindowsPhone(${windowsPhone[i].code})">Xóa bài viết</button>
+                    </td>
+                </tr>
+                `;
+            }
+            document.getElementById("windows-phone").innerHTML = display;
+        }
+
+        displayAdminWindowsPhone();
+        function delWindowsPhone(code) {
+            if (confirm("Bạn có muốn xóa không ?")) {
+                for (let i = 0; i < windowsPhone.length; i++) {
+                    const delWindowsPhone = windowsPhone[i];
+                    if (delWindowsPhone.code == code){
+                        windowsPhone.splice(i, 1);
+                        break;
+                    }
+                }
+                displayAdminWindowsPhone();
+                localStorage.setItem("windowsPhone",JSON.stringify(windowsPhone));
+            }
+        }
+
+        function addNewWindowsPhone(){
+            let newPhone = {
+                code : Math.random(),
+                stt : '',
+                name : '',
+                pic : '',
+                title : '',
+                text : '',
+                des : ''
+            };
+
+            function pushWindows(){
+                windowsPhone.push(newPhone);
+            }
+
+            let newStt = document.getElementById("windows-phone-stt-add").value;
+            document.getElementById("windows-phone-stt-add").value = '';
+            newPhone["stt"] = String(newStt);
+
+            let newName = document.getElementById("windows-phone-name-add").value;
+            document.getElementById("windows-phone-name-add").value = '';
+            newPhone["name"] = String(newName);
+
+            let newPic = document.getElementById("windows-phone-pic-add").value;
+            document.getElementById("windows-phone-pic-add").value = '';
+            newPhone["pic"] = newPic;
+
+            let newTitle = document.getElementById("windows-phone-title-add").value;
+            document.getElementById("windows-phone-title-add").value = '';
+            newPhone["title"] = String(newTitle);
+
+            let newText = document.getElementById("windows-phone-text-add").value;
+            document.getElementById("windows-phone-text-add").value = '';
+            newPhone["text"] = String(newText);
+
+            let newDes = document.getElementById("windows-phone-des-add").value;
+            document.getElementById("windows-phone-des-add").value = '';
+            newPhone["des"] = String(newDes);
+
+            if(newStt === '' || newName === '' || newPic === '' || newTitle === '' || newText === '' || newDes === ''){
+                alert("Vui lòng nhập đầy đủ thông tin");
+            } else {
+                if(confirm("Bạn có muốn đăng không ?")){
+                    pushWindows(newPhone);
+                    localStorage.setItem("windowsPhone",JSON.stringify(windowsPhone));
+                    alert("Thành công !");
+                
+                    displayAdminWindowsPhone();
+                }
+            }
+        }
+    </script>
+    <script>
+        function addBlackberryRequest(e){
+            e = e || window.event;
+            var target = e.target || e.srcElement;
+            localStorage.setItem("tempBlackberryId",JSON.stringify(target.id));
+        }
+
+        function displayAdminBlackberry(){
+            let display = '';
+            for(let i = 0;i < blackberry.length;i++){
+                const showTitle = blackberry[i].title;
+                const showStt = blackberry[i].stt;
+                display += `
+                <tr>
+                    <td>${showStt}</td>
+                    <td>${showTitle}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" onclick="checkCommentBlackberry(${showStt})" data-toggle="modal" data-target="#comments-blackberry-modal">
+                            Duyệt bình luận
+                        </button>
+                    </td>
+                    <td>
+                        <a id="${showStt}" onclick="addBlackberryRequest(event)" href="detail-blackberry.html" class="btn btn-info" >Xem bài viết</a>
+                        <button class="btn btn-warning" onclick="delBlackberry(${blackberry[i].code})">Xóa bài viết</button>
+                    </td>
+                </tr>
+                `;
+            }
+            document.getElementById("blackberry-phone").innerHTML = display;
+        }
+
+        displayAdminBlackberry();
+        function delBlackberry(code) {
+            if (confirm("Bạn có muốn xóa không ?")) {
+                for (let i = 0; i < blackberry.length; i++) {
+                    const delBlackberry = blackberry[i];
+                    if (delBlackberry.code == code){
+                        blackberry.splice(i, 1);
+                        break;
+                    }
+                }
+                displayAdminBlackberry();
+                localStorage.setItem("blackberry",JSON.stringify(blackberry));
+            }
+        }
+
+        function addNewBlackberry(){
+            let newPhone = {
+                code : Math.random(),
+                stt : '',
+                name : '',
+                pic : '',
+                title : '',
+                text : '',
+                des : '',
+                commentChecked : [
+                    {name:"Vũ Quang Minh",comment:"Đẹp"}
+                ]
+            };
+
+            function pushBlackberry(){
+                blackberry.push(newPhone);
+            }
+
+            let newStt = document.getElementById("blackberry-phone-stt-add").value;
+            document.getElementById("blackberry-phone-stt-add").value = '';
+            newPhone["stt"] = String(newStt);
+
+            let newName = document.getElementById("blackberry-phone-name-add").value;
+            document.getElementById("blackberry-phone-name-add").value = '';
+            newPhone["name"] = String(newName);
+
+            let newPic = document.getElementById("blackberry-phone-pic-add").value;
+            document.getElementById("blackberry-phone-pic-add").value = '';
+            newPhone["pic"] = newPic;
+
+            let newTitle = document.getElementById("blackberry-phone-title-add").value;
+            document.getElementById("blackberry-phone-title-add").value = '';
+            newPhone["title"] = String(newTitle);
+
+            let newText = document.getElementById("blackberry-phone-text-add").value;
+            document.getElementById("blackberry-phone-text-add").value = '';
+            newPhone["text"] = String(newText);
+
+            let newDes = document.getElementById("blackberry-phone-des-add").value;
+            document.getElementById("blackberry-phone-des-add").value = '';
+            newPhone["des"] = String(newDes);
+
+            if(newStt === '' || newName === '' || newPic === '' || newTitle === '' || newText === '' || newDes === ''){
+                alert("Vui lòng nhập đầy đủ thông tin");
+            } else {
+                if(confirm("Bạn có muốn đăng không ?")){
+                    pushBlackberry(newPhone);
+                    localStorage.setItem("blackberry",JSON.stringify(blackberry));
+                    alert("Thành công !");
+                
+                    displayAdminBlackberry();
+                }
+            }
+        }
+    </script>
+</body>
+</html>

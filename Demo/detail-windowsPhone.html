@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>R3view</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <script src="dataWindowsPhone.js"></script>
+</head>
+
+<body class="fluid-container">
+  <div>
+    <nav>
+      <div class="menu">
+        <ul>
+          <li>
+            <a href="#">
+              <img src=".\Pictures\Logo\R3view.jpg" alt="R3view" width="115px" height="35px">
+            </a>
+          </li>
+          <li><a href="list-IOS.html" class="menu-item">iOS</a></li>
+          <li><a href="list-android.html" class="menu-item">Android</a></li>
+          <li><a href="list-windowsPhone.html" class="menu-item">Windows Phone</a></li>
+          <li><a href="list-blackberry.html" class="menu-item">BlackBerry</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div id="element"></div>
+    <br>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script>
+      const tempId = JSON.parse(localStorage.getItem("tempWindowsId"));
+
+      function dataWindowsPhoneRequest(code){
+        for(let i = 0;i < windowsPhone.length;i++){
+            const dataWindowsPhone = windowsPhone[i];
+            if(dataWindowsPhone.stt === code){
+              let getElements = '';
+              const displayTitle = windowsPhone[i].title;
+              const displayPic = windowsPhone[i].pic;
+              const displayText = windowsPhone[i].text;
+              const displayName = windowsPhone[i].name;
+              getElements += `
+                  <div><img src="${displayPic}" alt="${displayName}" width="100%" height="600px"></div>
+                  <br>
+                  <div class="row">
+                    <div class="col-3"></div>
+                    <div class="col-6"><h1>${displayTitle}</h1></div>
+                    <div class="col-3"></div>
+                    <br>
+                    <div class="col-3"></div>
+                    <div class="col-6">${displayText}</div>
+                    <div class="col-3"></div>
+                  </div>
+              `;
+              document.getElementById("element").innerHTML = getElements;
+              break;
+            } else {
+                let e404 = "<h1>404 ERROR</h1>";
+                document.getElementById("element").innerHTML = e404;
+            }
+        }
+      }
+      dataWindowsPhoneRequest(tempId);
+    </script>
+    <script>
+      $(document).ready(function () {
+        $('#search').click(function () {
+          $('.menu-item').addClass('hide-item');
+          $('.search-form').addClass('active');
+          $('.close').addClass('active');
+          $('#search').hide();
+        })
+        $('.close').click(function () {
+          $('.menu-item').removeClass('hide-item');
+          $('.search-form').removeClass('active');
+          $('.close').removeClass('active');
+          $('#search').show();
+        })
+      })
+    </script>
+    <footer style="background-color: black;color: white;">
+      <div class="d-flex p-3">  
+        <div class="p-2">
+          <a href="#"><img src=".\Pictures\Logo\R3view.jpg" alt="R3view" width="150px" height="50px"></a>
+          <p>Copyright © R3view 2020</p>
+        </div>
+        <div class="p-2">
+          <ul style="list-style: none;">
+            <li><p>Tác giả:</p></li>
+            <li><a href="https://www.facebook.com/vu.quangminh.73594">Vũ Quang Minh</a></li>
+            <li><a href="https://www.facebook.com/trungkwan420">Nguyễn Trung Quân</a></li>
+            <li><a href="https://www.facebook.com/anhdungtran0106?fref=search&__tn__=%2Cd%2CP-R&eid=ARCId_QI1iIUVod8ZbAVEsfhxyZktYgFsGNrdy3XlkjyW6SQzvtJRV4heNzYAfyRxef4ZfDugerVhqkk">Trần Anh Dũng</a></li>
+          <ul>
+        </div>
+      </div>
+    </footer>
+</body>
+</html>
